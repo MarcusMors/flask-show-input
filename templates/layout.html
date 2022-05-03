@@ -10,10 +10,10 @@
 		<link href="https://fonts.googleapis.com/css2" />
 	</head>
 	<body>
-		<header>{% include 'navbar.html' %}</header>
+		<header>{%block header%}{%endblock%}</header>
 
 		<main>
-			<section>{% block content %} {% endblock %}</section>
+			<section>{% block main %} {% endblock %}</section>
 		</main>
 
 		<footer></footer>
@@ -21,5 +21,3 @@
 		<script src="./index.js"></script>
 	</body>
 </html>
-<!--
-//-->

@@ -2,33 +2,27 @@ from flask import Flask, request, make_response, redirect, render_template
 
 app = Flask(__name__)
 
-todos = ['Comprar cafe', 'Enviar solicitud de compra',
-         'Entregar video a productor ']
+names = []
 
 
 @app.route('/')
 def index():
-    user_ip = request.remote_addr
-
-    response = make_response(redirect('/hello'))
-    response.set_cookie('user_ip', user_ip)
-
-    return response
+    return render_template("index.html")
 
 
-@app.route('/hello')
-def hello():
-    user_ip = request.cookies.get('user_ip')
-    context = {
-        'user_ip': user_ip,
-        'todos': todos,
-    }
-
-    return render_template('hello.html', **context)
+# @app.route("/<string:name>")
+# def session(name):
+#     names.append(name)
+#     context = {"names": names}
+#     return render_template("index.html", **context)
 
 
-def hello():
-    return render_template("hello_world")
+@app.route("/hello", methods=["POST"])
+def login():
+    name = request.form.get("name")
+    names.append(name)
+    context = {"names": names}
+    return render_template("index.html", **context)
 
 
 if __name__ == '__main__':
