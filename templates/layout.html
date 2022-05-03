@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="" />
+		<meta name="robots" content="index,follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}Flask DBP |{% endblock %}</title>
+		<link rel="stylesheet" href="./index.css" />
+		<link href="https://fonts.googleapis.com/css2" />
+	</head>
+	<body>
+		<header>{% include 'navbar.html' %}</header>
+
+		<main>
+			<section>{% block content %} {% endblock %}</section>
+		</main>
+
+		<footer></footer>
+
+		<script src="./index.js"></script>
+	</body>
+</html>
+<!--
+//-->
